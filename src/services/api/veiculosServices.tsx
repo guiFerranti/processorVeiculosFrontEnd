@@ -13,16 +13,16 @@ interface ResponseRegisteredVeiculoJson {
 }
 
 interface RequestUpdateVeiculoJson {
-    ano: number;
+    ano?: number;
     marca: string;
     modelo: string;
 }
 
 interface ResponseGetVeiculoJson {
-    id: number;
+    id: string;
     createdAt: Date;
     updatedAt: Date;
-    ano: number;
+    ano?: number;
     marca: string;
     modelo: string;
 }
@@ -33,13 +33,13 @@ export const registerVeiculo = async (request: RequestRegisteredVeiculoJson) => 
   return response.data;
 };
 
-export const getVeiculoById = async (id: number) => {
+export const getVeiculoById = async (id: string) => {
     const response = await axios.get<ResponseGetVeiculoJson>(`${API_URL}/${id}`);
     return response.data;
   };
   
   
-  export const updateVeiculo = async (id: number, request: RequestUpdateVeiculoJson) => {
+  export const updateVeiculo = async (id: string, request: RequestUpdateVeiculoJson) => {
     await axios.put(`${API_URL}/${id}`, request);
   };
   
