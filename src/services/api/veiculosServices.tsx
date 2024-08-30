@@ -32,3 +32,19 @@ export const registerVeiculo = async (request: RequestRegisteredVeiculoJson) => 
   const response = await axios.post<ResponseRegisteredVeiculoJson>(`${API_URL}`, request);
   return response.data;
 };
+
+export const getVeiculoById = async (id: number) => {
+    const response = await axios.get<ResponseGetVeiculoJson>(`${API_URL}/${id}`);
+    return response.data;
+  };
+  
+  
+  export const updateVeiculo = async (id: number, request: RequestUpdateVeiculoJson) => {
+    await axios.put(`${API_URL}/${id}`, request);
+  };
+  
+  
+  export const deleteVeiculo = async (id: number) => {
+    await axios.delete(`${API_URL}/${id}`);
+  };
+  
