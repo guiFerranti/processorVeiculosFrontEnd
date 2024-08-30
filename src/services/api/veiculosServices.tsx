@@ -44,7 +44,7 @@ export const getVeiculoById = async (id: string) => {
   };
   
   
-  export const deleteVeiculo = async (id: number) => {
+  export const deleteVeiculo = async (id: string) => {
     await axios.delete(`${API_URL}/${id}`);
   };
   
