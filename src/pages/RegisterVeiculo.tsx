@@ -11,7 +11,7 @@ const RegisterVeiculo: React.FC = () => {
 
     const formik = useFormik({
     initialValues: {
-        ano: 0,
+        ano: undefined,
         marca: '',
         modelo: '',
     },

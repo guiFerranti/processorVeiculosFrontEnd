@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'https://localhost:7154/api/veiculos'; 
 
 interface RequestRegisteredVeiculoJson {
-    ano: number;
+    ano?: number;
     marca: string;
     modelo: string;
 }
