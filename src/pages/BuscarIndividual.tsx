@@ -38,7 +38,7 @@ const BuscaIndividual: React.FC = () => {
     };
 
     const handleEdit = () => {
-        navigate(`/veiculos/atualizar?id=${veiculo?.id}`);
+        navigate('/veiculos/atualizar', { state: { veiculoId: veiculo?.id } });
     };
 
     const handleDelete = async () => {

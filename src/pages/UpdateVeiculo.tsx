@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { getVeiculoById, updateVeiculo } from '../services/api/veiculosServices';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom';
 
 const UpdateVeiculo: React.FC = () => {
-    const [veiculoId, setVeiculoId] = useState<string | null>(null); // Alterado para string
+    const location = useLocation();
+    const [veiculoId, setVeiculoId] = useState<string | null>(location.state?.veiculoId || null);
     const [isEditing, setIsEditing] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (veiculoId) {
+            handleSearch();
+        }
+    }, [veiculoId]);
 
     const anoAtual = new Date().getFullYear();
     const anoLimite = anoAtual - 20;
@@ -46,7 +54,7 @@ const UpdateVeiculo: React.FC = () => {
     });
 
     const handleSearch = async () => {
-        if (veiculoId !== null) {
+        if (veiculoId) {
             setLoading(true);
             try {
                 const veiculo = await getVeiculoById(veiculoId);
@@ -75,7 +83,7 @@ const UpdateVeiculo: React.FC = () => {
             <div className="relative pb-7">
                 <label className="block text-left text-lg font-medium text-gray-700">ID do Veículo</label>
                 <input
-                    type="text" // Alterado para text
+                    type="text"
                     placeholder="Digite o ID"
                     value={veiculoId || ''}
                     onChange={(e) => setVeiculoId(e.target.value)}
