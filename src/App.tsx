@@ -4,6 +4,7 @@ import RegisterVeiculo from './pages/RegisterVeiculo';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/header';
 import UpdateVeiculo from './pages/UpdateVeiculo';
+import BuscaIndividual from './pages/BuscarIndividual';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/veiculos/register" element={<RegisterVeiculo />} />
                     <Route path="/veiculos/atualizar" element={<UpdateVeiculo />} />
+                    <Route path="/veiculos/busca-individual" element={<BuscaIndividual />} />
                 </Routes>
             </div>
         </>
