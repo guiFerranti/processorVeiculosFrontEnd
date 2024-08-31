@@ -89,6 +89,7 @@ const ListaVeiculos: React.FC = () => {
                             <p className="text-gray-700 mb-2 font-semibold">Ano: {veiculo.ano || 'N/A'}</p>
                             <p className="text-gray-500 text-sm mb-2">Criado em: {new Date(veiculo.createdAt).toLocaleString()}</p>
                             <p className="text-gray-500 text-sm">Atualizado em: {new Date(veiculo.updatedAt).toLocaleString()}</p>
+                            <p className="text-gray-400 text-xs mt-2">ID: {veiculo.id}</p> 
                             <div className="mt-4 flex justify-between">
                                 <button
                                     onClick={() => handleEdit(veiculo.id)}
