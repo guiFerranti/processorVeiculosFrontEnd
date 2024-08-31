@@ -19,7 +19,7 @@ const ListaVeiculos: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState<number>(1);
-    const pageSize = 20;
+    const pageSize = 6;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,21 +27,22 @@ const ListaVeiculos: React.FC = () => {
             try {
                 const response = await getAllVeiculos(page, pageSize);
                 setVeiculos(response.veiculos);
-                setTotalPages(response.totalPages || 1);
-                toast.success('Veículos carregados com sucesso!');
+                const totalPages = Math.ceil(response.totalCount / pageSize);
+                setTotalPages(totalPages || 1);
+                // toast.success('Veículos carregados com sucesso!');
             } catch (error) {
                 toast.error('Erro ao carregar veículos.');
             } finally {
                 setLoading(false);
             }
         };
-
+    
         fetchVeiculos();
-
+    
         return () => {
             toast.dismiss();
         };
-
+    
     }, [page]);
 
     const handleDelete = async (id: string) => {
