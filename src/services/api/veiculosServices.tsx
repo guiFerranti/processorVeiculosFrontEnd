@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://localhost:7154/api/veiculos'; 
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 interface RequestRegisteredVeiculoJson {
     ano?: number;
@@ -39,12 +39,19 @@ export const getVeiculoById = async (id: string) => {
   };
   
   
-  export const updateVeiculo = async (id: string, request: RequestUpdateVeiculoJson) => {
+export const updateVeiculo = async (id: string, request: RequestUpdateVeiculoJson) => {
     await axios.put(`${API_URL}/${id}`, request);
-  };
-  
-  
-  export const deleteVeiculo = async (id: string) => {
+};
+
+
+export const deleteVeiculo = async (id: string) => {
     await axios.delete(`${API_URL}/${id}`);
-  };
-  
+};
+
+export const getAllVeiculos = async (page: number = 1, pageSize: number = 20) => {
+    const response = await axios.get(`${API_URL}/all`, {
+        params: { page, pageSize }
+    });
+    return response.data;
+};
+
