@@ -6,6 +6,7 @@ interface RequestRegisteredVeiculoJson {
     ano?: number;
     marca: string;
     modelo: string;
+    imageUrl?: string;
 }
 
 interface ResponseRegisteredVeiculoJson {
@@ -16,6 +17,7 @@ interface RequestUpdateVeiculoJson {
     ano?: number;
     marca: string;
     modelo: string;
+    imageUrl: string;
 }
 
 interface ResponseGetVeiculoJson {
@@ -25,6 +27,7 @@ interface ResponseGetVeiculoJson {
     ano?: number;
     marca: string;
     modelo: string;
+    imageUrl: string;
 }
 
 
@@ -49,7 +52,7 @@ export const deleteVeiculo = async (id: string) => {
 };
 
 export const getAllVeiculos = async (page: number = 1, pageSize: number = 20) => {
-    const response = await axios.get(`${API_URL}/all`, {
+    const response = await axios.get(`${API_URL}`, {
         params: { page, pageSize }
     });
     return response.data;
