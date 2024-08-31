@@ -13,9 +13,9 @@ const Header: React.FC = () => {
           <li>
             <Link to="/veiculos/busca-individual" className="hover:underline header-link">Busca Individual</Link>
           </li>
-          {/* <li>
+          <li>
             <Link to="/veiculos/busca-completa" className="hover:underline header-link">Busca Completa</Link>
-          </li> */}
+          </li>
           <li>
             <Link to="/veiculos/atualizar" className="hover:underline header-link">Atualizar</Link>
           </li>

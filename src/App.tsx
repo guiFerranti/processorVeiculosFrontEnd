@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import Header from './components/header';
 import UpdateVeiculo from './pages/UpdateVeiculo';
 import BuscaIndividual from './pages/BuscarIndividual';
+import ListaVeiculos from './pages/BuscarCompleto';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/veiculos/register" element={<RegisterVeiculo />} />
                     <Route path="/veiculos/atualizar" element={<UpdateVeiculo />} />
                     <Route path="/veiculos/busca-individual" element={<BuscaIndividual />} />
+                    <Route path="/veiculos/busca-completa" element={<ListaVeiculos />} />
                 </Routes>
             </div>
         </>
