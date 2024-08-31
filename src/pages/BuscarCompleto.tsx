@@ -37,6 +37,11 @@ const ListaVeiculos: React.FC = () => {
         };
 
         fetchVeiculos();
+
+        return () => {
+            toast.dismiss();
+        };
+
     }, [page]);
 
     const handleDelete = async (id: string) => {
