@@ -6,6 +6,7 @@ import Header from './components/header';
 import UpdateVeiculo from './pages/UpdateVeiculo';
 import BuscaIndividual from './pages/BuscarIndividual';
 import ListaVeiculos from './pages/BuscarCompleto';
+import Home from './pages/Home';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/veiculos/atualizar" element={<UpdateVeiculo />} />
                     <Route path="/veiculos/busca-individual" element={<BuscaIndividual />} />
                     <Route path="/veiculos/busca-completa" element={<ListaVeiculos />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </div>
         </>
